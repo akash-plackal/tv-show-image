@@ -4,12 +4,14 @@ const input = document.getElementsByTagName("input");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
+  const searchText = document.querySelector(".search-text");
   const searchTerm = input[0].value;
   const res = await axios.get(
     `http://api.tvmaze.com/search/shows?q=${searchTerm}`
   );
+  searchText.textContent = `Results showing for '${searchTerm}'`;
   createImg(res.data);
-  input[0].value = " ";
+  input[0].value = "";
 });
 
 const createImg = (shows) => {
