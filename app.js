@@ -4,6 +4,7 @@ const input = document.getElementsByTagName("input");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
+  gallery.innerHTML = "";
   const searchText = document.querySelector(".search-text");
   const searchTerm = input[0].value;
   const res = await axios.get(
